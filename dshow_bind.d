@@ -1,5 +1,5 @@
-public import core.sys.windows.windows;
-public import core.sys.windows.objidl;
+import core.sys.windows.windows;
+import core.sys.windows.objidl;
 
 // evilrat666/directx-d com.dから拝借
 template uuid(T, const char[] g) {
