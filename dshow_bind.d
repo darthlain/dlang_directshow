@@ -38,6 +38,25 @@ interface IMediaControl : IDispatch {
     void f9();
 }
 
+alias REFTIME = double;
+
+//control.h 1013
+mixin( uuid!(IMediaPosition, "56a868b2-0ad4-11ce-b03a-0020af0ba770"));
+interface IMediaPosition : IDispatch {
+    extern(Windows):
+    HRESULT get_Duration(REFTIME* plength);
+    HRESULT put_CurrentPosition(REFTIME llTime);
+    HRESULT get_CurrentPosition(REFTIME* pllTime);
+    HRESULT get_StopTime(REFTIME* pllTime);
+    HRESULT put_StopTime(REFTIME llTime);
+    HRESULT get_PrerollTime(REFTIME* pllTime);
+    HRESULT put_PrerollTime(REFTIME llTime);
+    HRESULT put_Rate(double dRate);
+    HRESULT get_Rate(double* pdRate);
+    HRESULT CanSeekForward(LONG* pCanSeekForward);
+    HRESULT CanSeekBackward(LONG* pCanSeekBackward);
+}
+
 // strmif.h 1790
 mixin( uuid!(IFilterGraph, "56a8689f-0ad4-11ce-b03a-0020af0ba770"));
 interface IFilterGraph : IUnknown {
